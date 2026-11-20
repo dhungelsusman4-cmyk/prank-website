@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Important Message</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #080b12;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 22px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #aab2c2;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 25px;
+  padding: 16px 30px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: #3878ff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+.hidden {
+  display: none;
+}
+
+.emoji {
+  font-size: 75px;
+  margin: 20px;
+}
+
+.small {
+  font-size: 13px;
+  color: #667085;
+  margin-top: 35px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="start">
+  <h1>⚠️ Important Notice</h1>
+  <p>
+    Your attention is required.<br>
+    Something unusual has been detected.
+  </p>
+  <button onclick="continuePrank()">
+    Continue →
+  </button>
+  <p class="small">Please read carefully.</p>
+</div>
+
+<div class="container hidden" id="loading">
+  <div class="emoji">⏳</div>
+  <h1>Processing...</h1>
+  <p>Please wait while we prepare something special.</p>
+</div>
+
+<div class="container hidden" id="reveal">
+  <div class="emoji">😂</div>
+  <h1>YOU HAVE BEEN PRANKED!</h1>
+  <p>
+    Congratulations!<br>
+    You just wasted your precious time.
+  </p>
+  <button onclick="location.reload()">
+    Try Again ↻
+  </button>
+  <p class="small">Made for entertainment purposes.</p>
+</div>
+
+<script>
+function continuePrank() {
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("loading").classList.remove("hidden");
+
+  setTimeout(() => {
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("reveal").classList.remove("hidden");
+  }, 2500);
+}
+</script>
+
+</body>
+</html>
